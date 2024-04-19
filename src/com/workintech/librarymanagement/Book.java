@@ -3,8 +3,6 @@ package com.workintech.librarymanagement;
 import java.util.Objects;
 
 public class Book {
-
-    // instance variable
     private int id;
     private String title;
     private String author;
@@ -12,14 +10,12 @@ public class Book {
     private boolean available;
     private double price;
 
-
-    // constructor
-    public Book(int id, String title, String author, String category, boolean available, double price) {
+    public Book(int id, String title, String author, String category, double price) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.category = category;
-        this.available = available;
+        this.available = true;
         this.price = price;
     }
 
@@ -64,10 +60,10 @@ public class Book {
     public void setAvailable(boolean available) {
         this.available = available;
     }
+
     public double getPrice() {
         return price;
     }
-
     public void setPrice(double price) {
         this.price = price;
     }

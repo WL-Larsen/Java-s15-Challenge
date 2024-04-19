@@ -2,13 +2,13 @@ package com.workintech.librarymanagement;
 
 import java.util.List;
 
-public interface BookManagement {
-    void addBook(Book book);
-    Book findBookById(int id);
-    List<Book> findBooksByTitle(String title);
-    List<Book> findBooksByAuthor(String author);
-    void updateBookInfo(int id, String newInfo);
-    void removeBook(int id);
-    List<Book> listBooksByCategory(String category);
-    List<Book> listBooksByAuthor(String author);
+interface BookManagement {
+    void addBook(Book book); // Kitap eklemek için metot
+    Book findBookById(int id); // ID ile kitap bulmak için metot
+    List<Book> findBooksByTitle(String title); // Başlık ile kitapları bulmak için metot
+    List<Book> findBooksByAuthor(String author); // Yazar ile kitapları bulmak için metot
+    void updateBookInfo(int id, double newInfo); // Kitap bilgilerini güncellemek için metot
+    void removeBook(int id); // Kitap silmek için metot
+    List<Book> listBooksByCategory(String category); // Kategoriye göre kitapları listelemek için metot
+    List<Book> listBooksByAuthor(String author); // Yazarına göre kitapları listelemek için metot
 }

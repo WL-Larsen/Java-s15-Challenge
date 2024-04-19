@@ -2,18 +2,18 @@ package com.workintech.librarymanagement;
 
 import java.util.List;
 
-public class Library implements BookManagement{
+public class Library implements BookManagement {
     private LibraryContent content;
-    private  LibraryManager transactionManager;
+    private LibraryManager manager;
 
     public Library(LibraryContent content) {
-        this.content = new LibraryContent();
-        this.transactionManager = new LibraryManager(content);
+        this.content = content;
+        this.manager = new LibraryManager(content);
     }
 
     @Override
     public void addBook(Book book) {
-        content.addBooks(book);
+        content.addBook(book);
     }
 
     @Override
@@ -32,9 +32,8 @@ public class Library implements BookManagement{
     }
 
     @Override
-    public void updateBookInfo(int id, String newInfo) {
+    public void updateBookInfo(int id, double newInfo) {
         content.updateBookInfo(id, newInfo);
-
     }
 
     @Override
@@ -51,5 +50,24 @@ public class Library implements BookManagement{
     public List<Book> listBooksByAuthor(String author) {
         return content.listBooksByAuthor(author);
     }
-    
+
+    public void lendBook(Book book, User user) throws UserLimitException {
+        manager.lendBook(book, user);
+    }
+
+    public void returnBook(Book book, User user) {
+        manager.returnBook(book, user);
+    }
+
+    public void generateInvoice(Book book, User user) {
+        manager.generateInvoice(book, user);
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "content=" + content +
+                ", manager=" + manager +
+                '}';
+    }
 }

@@ -1,24 +1,25 @@
 package com.workintech.librarymanagement;
 
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class User {
-
-    private String userId;
+    private int userId;
     private String name;
     private Set<Book> borrowedBooks;
 
-    public User(String userId, String name, Set<Book> borrowedBooks) {
+    public User(int userId, String name) {
         this.userId = userId;
         this.name = name;
-        this.borrowedBooks = borrowedBooks;
+        this.borrowedBooks = new HashSet<>();
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -38,6 +39,12 @@ public class User {
         this.borrowedBooks = borrowedBooks;
     }
 
-    // Kitap ödünç alma ve geri verme metotları gelecek
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", borrowedBooks=" + borrowedBooks +
+                '}';
+    }
 }
